@@ -1,15 +1,15 @@
 class MyHash
   define_method(:initialize) do
-    @key
-    @value
+    @keys = []
+    @values =[]
   end
 
   define_method(:store) do |key, value|
-    @key = key
-    @value = value
+    @keys.push(key)
+    @values.push(value)
   end
 
-  define_method(:fetch) do |key|
-    @value
+  define_method(:fetch) do |key_search|
+    @values.at(@keys.find_index(key_search))
   end
 end
